@@ -26,8 +26,6 @@
     for ( int i = 0 ; i < self.numberOfPages ; i++ )
     {
         UIGraphicsBeginPDFPage();
-
-
         CGContextRef currentContext = UIGraphicsGetCurrentContext();
         CGContextSetFillColorWithColor(currentContext, _bgColor.CGColor);
         CGContextFillRect(currentContext, self.paperRect);
@@ -94,9 +92,8 @@ RCT_EXPORT_METHOD(convert:(NSDictionary *)options
     } else {
         _fileName = [[NSProcessInfo processInfo] globallyUniqueString];
     }
-
     // Default Color
-    _bgColor = [UIColor colorWithRed: (246.0/255.0) green:(245.0/255.0) blue:(240.0/255.0) alpha:1];
+    _bgColor = [UIColor colorWithRed: (255.0/255.0) green:(255.0/255.0) blue:(255.0/255.0) alpha:1];
     if (options[@"bgColor"]){
         NSString *hex = [RCTConvert NSString:options[@"bgColor"]];
         hex = [hex uppercaseString];
